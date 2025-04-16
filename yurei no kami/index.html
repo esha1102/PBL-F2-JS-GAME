@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yūrei No KAMI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caesar+Dressing&family=Covered+By+Your+Grace&family=Lilita+One&family=Noto+Sans+SC:wght@100..900&family=Potta+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #080808;
+            color: white;
+            font-family: 'Noto Serif JP', serif;
+            min-height: 100vh;
+            background-image: 
+                /* Subtle kanji characters in background */
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'%3E%3Ctext x='30' y='60' font-family='serif' font-size='20' fill='%23220000' opacity='0.07'%3E怖%3C/text%3E%3Ctext x='90' y='60' font-family='serif' font-size='20' fill='%23220000' opacity='0.07'%3E恐%3C/text%3E%3Ctext x='150' y='60' font-family='serif' font-size='20' fill='%23220000' opacity='0.07'%3E死%3C/text%3E%3Ctext x='30' y='120' font-family='serif' font-size='20' fill='%23220000' opacity='0.07'%3E闇%3C/text%3E%3Ctext x='90' y='120' font-family='serif' font-size='20' fill='%23220000' opacity='0.07'%3E霊%3C/text%3E%3Ctext x='150' y='120' font-family='serif' font-size='20' fill='%23220000' opacity='0.07'%3E鬼%3C/text%3E%3Ctext x='30' y='180' font-family='serif' font-size='20' fill='%23220000' opacity='0.07'%3E魂%3C/text%3E%3Ctext x='90' y='180' font-family='serif' font-size='20' fill='%23220000' opacity='0.07'%3E影%3C/text%3E%3Ctext x='150' y='180' font-family='serif' font-size='20' fill='%23220000' opacity='0.07'%3E幽%3C/text%3E%3C/svg%3E");
+        }
+
+        /* Styles from first file */
+        .start-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            position: relative;
+            z-index: 1;
+        }
+
+        .start-container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.6) 100%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .title {
+            font-size: 100px;
+            color: #b30000;
+            text-shadow: 2px 2px 15px rgba(180, 0, 0, 0.6);
+            margin-bottom: 60px;
+            text-transform: uppercase;
+            letter-spacing: 10px;
+            font-family: "Caesar Dressing", system-ui;
+            position: relative;
+            animation: flicker 4s infinite alternate;
+        }
+
+        .title::after {
+            content: "";
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 40px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 40' preserveAspectRatio='none'%3E%3Cpath d='M10,0 C10,0 50,2 60,0 C70,2 110,0 110,0 C110,0 105,5 100,10 C95,8 90,15 80,12 C70,15 65,8 60,10 C55,8 50,15 40,12 C30,15 25,8 20,10 C15,5 10,0 10,0 Z' fill='%23600'/%3E%3Cpath d='M60,10 C60,10 55,12 50,15 C55,20 60,15 60,25 C60,15 65,20 70,15 C65,12 60,10 60,10 Z' fill='%23600'/%3E%3Cpath d='M30,12 C30,12 28,15 30,20 C32,25 30,30 30,30 C30,30 28,25 26,20 C24,15 30,12 30,12 Z' fill='%23600'/%3E%3Cpath d='M90,12 C90,12 92,15 90,20 C88,25 90,35 90,35 C90,35 92,25 94,20 C96,15 90,12 90,12 Z' fill='%23600'/%3E%3C/svg%3E");
+            background-size: 100% 100%;
+            opacity: 0.8;
+        }
+
+        .start-button {
+            padding: 15px 40px;
+            font-size: 24px;
+            background: linear-gradient(45deg, #6b0000, #990000);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            font-family: "Covered By Your Grace", cursive;
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 2px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .start-button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.6s ease;
+        }
+
+        .start-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .start-button:hover::before {
+            left: 100%;
+        }
+
+        .start-button:active {
+            transform: translateY(1px);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='500' viewBox='0 0 500 500' opacity='0.3'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.1 0'/%3E%3C/filter%3E%3Crect width='500' height='500' filter='url(%23noise)' fill='%23151515'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.15;
+        }
+
+        @keyframes flicker {
+            0%, 18%, 22%, 36%, 70%, 72%, 82%, 92%, 98%, 100% {
+                opacity: 1;
+                text-shadow: 2px 2px 15px rgba(180, 0, 0, 0.6);
+            }
+            20%, 24%, 55%, 75%, 85%, 95% {
+                opacity: 0.8;
+                text-shadow: 2px 2px 10px rgba(180, 0, 0, 0.4);
+            }
+        }
+
+        .spider-web {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 150 150'%3E%3Cpath d='M150,0 L75,75 M150,30 L105,75 M150,60 L135,75 M120,0 L75,45 M90,0 L75,15 M75,0 L150,75 M75,30 L120,75 M75,60 L90,75' stroke='%23aaaaaa' stroke-width='1' opacity='0.1'/%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        /* Elements for first display */
+        #startup-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #080808;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 1s ease-in-out;
+        }
+
+        /* Main content will be initially hidden */
+        #main-content {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="spider-web"></div>
+
+    <!-- Startup Screen -->
+    <div id="startup-screen">
+        <div class="start-container">
+            <h1 class="title">Yūrei No KAMI</h1>
+            <button class="start-button" onclick="showMainContent()">START</button>
+        </div>
+    </div>
+
+    <!-- Main Content (Initially Hidden) -->
+    <div id="main-content">
+        <div class="navbar">
+            <div class="logo">Yūrei No KAMI</div>
+            <div class="nav-links">
+                <a href="#home" onclick="showSection('home')">Home</a>
+                <a href="about.html" onclick="showSection('about')">About</a>
+                <a href="game.html" onclick="showSection('game')">Game</a>
+               
+            </div>
+        </div>
+
+        <div id="home" class="section">
+            <div class="container1">
+                <h1 class="gametitle">YUREI NO KAMI</h1>
+                <div class="buttons">
+                    <a href="game.html" class="play-button" onclick="showSection('game')">Play Game</a>
+                    <a href="#" class="controls-button" onclick="openControls()">Controls</a>
+                    <a href="#" class="rules-button" onclick="openRules()">Rules</a>
+                </div>
+            </div>
+            <div id="controlsModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeControls()">&times;</span>
+                    <h2>Game Controls</h2>
+                    <p>Use <strong>A & D</strong> or <strong>Arrow Keys</strong> to move LEFT and RIGHT.</p>
+                    <p>Press <strong>Space</strong> to become a square.</p>
+                    <p>Press <strong>S</strong> to become a rectangle.</p>
+                    <p>Press <strong>W</strong> to become a circle.</p>
+                </div>
+            </div>
+            <div id="rulesModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeRules()">&times;</span>
+                    <h2>Game Rules</h2>
+                    <p>1. Escape the urban legends in the fastest time.</p>
+                    <p>2. Avoid obstacles and enemies along the way.</p>
+                    <p>3. If you fail to collect all 10 orbs, you lose.</p>
+                    <p>4. You can change form to get through the obstacles. -circle, square and rectangle- </p>
+                    <h2>Forms</h2>
+                    <p>1. Circle- Stick to the ceiling to avoid below obstacles. </p>
+                    <p>2. Square- Normal form.</p>
+                    <p>3. Rectangle- Get through narrow spots.</p>
+                </div>
+            </div>
+        </div>
+        <div class="container2">
+            <h1 class="con1">Welcome to <span>Yūrei No KAMI</span></h1>
+            <p class="con2">In rainy evening, Takumi was sitting in the library studying about the japanese urban legends,<br> he was so curious about it that he spent his whole day<br> in the weekend. Suddenly the images in the book felt distorted,<br> and soon he was pulled into the book to a place<br> called "Yurei No KAMI", a place where you have to escape the urban legends and<br> dodge the obstacle before the timer runs out, if you didnt manage to achieve it you will...-</p> 
+            <img src="rokuimg.png" alt="japaneseurban" class="rokoimg">
+        </div>
+
+        <div id="game" class="section" style="display: none;">
+            <canvas id="myCanvas" width="400" height="200"></canvas>
+        </div>
+    </div>
+    
+    <script>
+        // Function to show main content and hide startup screen
+        function showMainContent() {
+            const startupScreen = document.getElementById('startup-screen');
+            const mainContent = document.getElementById('main-content');
+            
+            // Fade out startup screen
+            startupScreen.style.opacity = '0';
+            
+            // Show main content after animation completes
+            setTimeout(() => {
+                startupScreen.style.display = 'none';
+                mainContent.style.display = 'block';
+            }, 1000);
+        }
+        
+        function showSection(section) {
+            document.querySelectorAll('.section').forEach(div => div.style.display = 'none');
+            document.getElementById(section).style.display = 'flex';
+        }
+
+        document.addEventListener("scroll", function () {
+            let sections = document.querySelectorAll(".section");
+            sections.forEach(section => {
+                let sectionTop = section.getBoundingClientRect().top;
+                let windowHeight = window.innerHeight;
+                if (sectionTop < windowHeight - 100) {
+                    section.classList.add("show");
+                }
+            });
+        });
+
+        function openControls() {
+            document.getElementById("controlsModal").style.display = "flex";
+        }
+
+        function closeControls() {
+            document.getElementById("controlsModal").style.display = "none";
+        }
+
+        function openRules() {
+            document.getElementById("rulesModal").style.display = "flex";
+        }
+
+        function closeRules() {
+            document.getElementById("rulesModal").style.display = "none";
+        }
+
+        // Close modal when clicking outside the box
+        window.onclick = function(event) {
+            let controlsModal = document.getElementById("controlsModal");
+            let rulesModal = document.getElementById("rulesModal");
+            
+            if (event.target === controlsModal) {
+                controlsModal.style.display = "none";
+            }
+            
+            if (event.target === rulesModal) {
+                rulesModal.style.display = "none";
+            }
+        };
+    </script>
+</body>
+</html>

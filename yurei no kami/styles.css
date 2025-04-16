@@ -1,0 +1,312 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;700&display=swap');
+
+.section {
+    display: none; /* Hide all sections initially */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+#home {
+    display: flex; /* Ensure home is visible by default */
+}
+
+
+body {
+    margin: 0;
+    font-family: 'Noto Serif JP', serif;
+    background-color: black;
+    background-size: cover;
+    position: relative;
+    transition: background-size 0.5s ease-in-out;
+}
+
+body.scrolled {
+    background-size: 110%; /* Slight zoom-in */
+}
+.section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: -1;
+}
+
+.navbar {
+    background: rgba(26, 26, 26, 0.8);
+    border-bottom: 2px solid #b30000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0;
+    width: 94%;
+    z-index: 1000;
+}
+
+.logo {
+    color: #cd1717;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: "Caesar Dressing", system-ui;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 40px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: #d1bebe;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: "Covered By Your Grace", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size:30px;
+    transition: 0.3s;
+    position: relative;
+}
+
+.nav-links a:hover {
+    color: #bd3333;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background-color: #b30000;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+.container1{
+    background-image: [url('bg4.jpg');filter: brightness(50%)];
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    width: 100%;
+    height: 620px;
+    ;
+}
+.container1::before {
+    content: ""; /* Creates an empty pseudo-element */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('bg4.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    filter: brightness(50%); /* Apply the filter to the pseudo-element */
+    z-index: -1; /
+}
+.gametitle{
+    font-size: 130px;
+    top: 7%;
+    right: 12%;
+    margin-left: 3px;
+    text-shadow: #222;
+    position: relative;
+    color: white;
+    font-family: "Potta One", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+.container2{
+    color: black;
+
+}
+.con1{
+    color: whitesmoke;
+    font-size: 57px;
+    margin-left: 150px;
+    font-family: "Potta One", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+.con1, .span{
+    color: #e2aaaa;
+}
+.con2{
+    color: white;
+    text-align: left;
+    font-size: 20.5px;
+    margin-left: 160px;
+    font-family: "Noto Sans SC", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+
+}
+.rokoimg{
+    position: absolute;
+    top: 70%;
+    height: 37%;
+    left: 70%;
+}
+/* Game Section */
+.game-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgba(240, 240, 240, 0.9); /* Lighter background */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+canvas {
+    background-color: white;
+    display: block;
+    width: 100%; /* Make it responsive */
+    max-width: 1200px; /* Wider canvas on larger screens */
+    height: 550px;
+    border: 3px solid #b30000;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(179, 0, 0, 0.7);
+    margin: 0 auto;
+}
+
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.buttons {
+    display: flex;
+    margin-left: 55px;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.play-button, .controls-button, .rules-button {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    left: 20%;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+.play-button {
+    background-color: #98caff; /* Blue */
+    color: white;
+}
+
+.play-button:hover {
+    background-color: #0056b3;
+    box-shadow: 0 6px 10px rgba(0, 123, 255, 0.5);
+}
+
+.controls-button {
+    background-color: #ffe188; /* Yellow */
+    color: rgb(255, 255, 255);
+}
+
+.controls-button:hover {
+    background-color: #e0a800;
+    box-shadow: 0 6px 10px rgba(255, 193, 7, 0.5);
+}
+
+.rules-button {
+    background-color: #ff6969; /* Green */
+    color: rgb(255, 255, 255);
+}
+
+.rules-button:hover {
+    background-color: #d52525;
+    box-shadow: 0 6px 10px rgba(161, 33, 33, 0.5);
+}
+
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #222;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+}
+
+.close:hover {
+    color: red;
+}
+
+.section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+

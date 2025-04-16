@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Yūrei No KAMI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Caesar+Dressing&family=Covered+By+Your+Grace&family=Lilita+One&family=Potta+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles2.css">
+    <!-- Add Font Awesome for programmer and designer icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="navbar">
+        <div class="logo">Yūrei No KAMI</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html" onclick="showSection('about')">About</a>
+            <a href="game.html" onclick="showSection('game')">Game</a>
+          
+        </div>
+    </div>
+
+    <div id="about" class="section">
+        <h1 class="about-title">About Us</h1>
+        <div class="about-container">
+
+            <div class="profile">
+                <h2 class="person-text">QAIYS INSYIRAH</h2>
+                <div class="profile-content">
+                    <div class="image-container">
+                        <img src="qaiys.jpg" alt="Qaiys" class="profile-image">
+                        <div class="image-overlay">Programmer</div>
+                    </div>
+                    <div class="programmer-decoration">
+                        <div class="code-icon"><i class="fas fa-code"></i></div>
+                        <div class="code-bracket">{</div>
+                        <p class="about-us">Qaiys Insyirah Binti Mohd. Syamsul Jumari <br> 2k4<br> Programmer</p>
+                        <div class="code-bracket">}</div>
+                        <div class="tech-tag">&lt;/&gt;</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="profile">
+                <h2 class="person-text">ALEESHA FARHANA</h2>
+                <div class="profile-content">
+                    <div class="image-container">
+                        <img src="aleesha.jpg" alt="Aleesha" class="profile-image">
+                        <div class="image-overlay">Designer</div>
+                    </div>
+                    <div class="designer-decoration">
+                        <div class="design-icon"><i class="fas fa-paint-brush"></i></div>
+                        <div class="color-palette">
+                            <span class="color-dot color1"></span>
+                            <span class="color-dot color2"></span>
+                            <span class="color-dot color3"></span>
+                        </div>
+                        <p class="about-us">Aleesha farhana Binti Mohamed Zubair<br> 2k5<br> Designer</p>
+                        <div class="ruler-icon"><i class="fas fa-ruler-combined"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- New Characters Section -->
+    <div id="characters" class="section">
+        <h1 class="characters-title">Characters</h1>
+        <div class="characters-container">
+            <!-- Three square image slots for shape characters -->
+            <div class="shape-characters">
+                <div class="character-box">
+                    <div class="character-image square">
+                        <img src="squarechc.png" alt="Square Character">
+                    </div>
+                    <h3 class="character-name">Square</h3>
+                </div>
+                
+                <div class="character-box">
+                    <div class="character-image circle">
+                        <img src="circlechc.png" alt="Circle Character">
+                    </div>
+                    <h3 class="character-name">Circle</h3>
+                </div>
+                
+                <div class="character-box">
+                    <div class="character-image rectangle">
+                        <img src="rectanglechc.png" alt="Rectangle Character">
+                    </div>
+                    <h3 class="character-name">Rectangle</h3>
+                </div>
+            </div>
+            
+            <!-- Long Neck CHC character with description -->
+            <div class="featured-character">
+                <div class="featured-image">
+                    <img src="rouku.png" alt="Long Neck CHC">
+                </div>
+                <div class="featured-description">
+                    <h2 class="featured-name">Rokurokubi</h2>
+                    <p class="featured-text">Rokurokubi (ろくろ首, 轆轤首) is a type of Japanese yōkai (apparition). They look almost completely like humans with some differences. There is a type whose neck stretches and another whose head detaches and flies around freely (nukekubi). The Rokurokubi appear in classical kaidan (spirit tales)<br> and in yōkai works.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
